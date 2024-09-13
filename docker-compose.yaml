@@ -1,14 +1,14 @@
 services:
-  postgres:
+  announcement-db:
     image: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - data:/var/lib/postgresql/data
+      - announcement-data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: announcement
       POSTGRES_USER: announcement
-      POSTGRES_PASSWORD: announcement123$$
+      POSTGRES_PASSWORD: announcement123
 
   zitadel:
     restart: "always"
@@ -41,5 +41,5 @@ services:
       - "26257:26257"
 
 volumes:
-  data:
+  announcement-data:
   cockroachdb-data:
