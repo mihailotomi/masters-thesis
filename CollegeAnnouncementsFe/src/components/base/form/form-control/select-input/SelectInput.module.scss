@@ -1,0 +1,55 @@
+@use "../../../../../styles/variables.scss" as *;
+
+.select-wrapper {
+  position: relative;
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+
+  &-disabled {
+    background-color: #e9ecef !important;
+  }
+
+  input {
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.clear-icon {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  right: 2px;
+  left: 2px;
+  padding: 0.25rem;
+  list-style: none;
+  background-color: $color-white;
+  box-shadow: 0 1px 1px 1px rgba($color: #5bc0de, $alpha: 0.2);
+  z-index: 100;
+
+  li button {
+    cursor: pointer;
+    padding: 0.125rem 0.5rem;
+    width: 100%;
+    text-align: left;
+    background-color: inherit;
+
+    &:hover {
+      background-color: $color-info;
+      color: $color-white;
+    }
+  }
+}

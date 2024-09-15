@@ -1,0 +1,35 @@
+.button {
+  min-height: 24px;
+  min-width: 24px;
+  display: flex !important;
+  gap: 0.125rem;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row;
+
+  &--fill {
+    color: #fff !important;
+  }
+
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+
+    &__left {
+      margin-right: 10px;
+    }
+
+    &__right {
+      margin-left: 10px;
+    }
+  }
+  &--loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+}

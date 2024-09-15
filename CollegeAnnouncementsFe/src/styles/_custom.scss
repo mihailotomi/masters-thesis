@@ -1,0 +1,68 @@
+@import "~bootstrap/scss/bootstrap";
+
+$theme-colors: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "info": $color-info,
+  "warning": $color-warning,
+  "danger": $color-danger,
+  "light": $color-light,
+  "dark": $color-dark,
+);
+
+$font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$breadcrumb-margin-bottom: 0;
+
+a {
+  text-decoration: none !important;
+}
+
+.form-check-input {
+  height: 1.25rem;
+  width: 2rem;
+
+  &:checked {
+    background-color: $color-success;
+    border-color: $color-success;
+  }
+
+  &:focus {
+    border-color: white;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(49, 253, 13, 0.402);
+  }
+}
+
+.button-span {
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol.breadcrumb {
+  padding: 0;
+  margin: 0;
+  height: "100%";
+
+  li {
+    margin: 0;
+  }
+}

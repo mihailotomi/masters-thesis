@@ -1,0 +1,23 @@
+@use "../../styles/_variables.scss" as *;
+
+.card {
+  background-color: $sidenav_bg_color; 
+  box-shadow: $box-shadow;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  border-color: $color-primary;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+}
+
+.logo {
+  background-color: $logo_background;
+  padding: 10px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}

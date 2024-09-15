@@ -1,0 +1,8 @@
+@use "../../styles/variables";
+
+.alert {
+  --toastify-color-error: $color-danger;
+  --toastify-icon-color-error: $color-danger;
+  --toastify-color-success: $color-success;
+  --toastify-icon-color-success: $color-success;
+}

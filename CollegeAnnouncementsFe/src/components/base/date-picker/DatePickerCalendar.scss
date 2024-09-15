@@ -1,0 +1,138 @@
+@use "../../../styles/variables.scss" as *;
+
+.date-picker-calendar {
+  background-color: $color-white;
+  padding-bottom: 10px;
+  border: $border;
+
+  &.size-sm {
+    max-width: 260px;
+  }
+  &.size-md {
+    max-width: 360px;
+  }
+  &.size-lg {
+    max-width: 440px;
+  }
+  &.size-xl {
+    max-width: 560px;
+  }
+  &.size-auto {
+    width: auto;
+    min-width: 260px;
+    max-width: none;
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  .week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 2.5px;
+    background-color: $color-light;
+
+    .day-name {
+      padding: 5px;
+      font-weight: bold;
+      color: $color-dark;
+    }
+    .day-name:nth-child(7) {
+      color: $color-danger;
+    }
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+
+    .day {
+      transition: all 0.3s ease-in-out;
+      padding: 5px;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      color: $color-dark;
+
+      &:hover {
+        background-color: $color-light;
+      }
+
+      &.empty {
+        background-color: transparent;
+        cursor: default;
+      }
+      &.in-range {
+        background-color: $color-light;
+        color: color-black;
+      }
+      &.disabled {
+        color: #ccc;
+        cursor: not-allowed;
+        background-color: $color-white;
+        opacity: 0.75;
+
+        &:hover {
+          background-color: $color-light;
+        }
+      }
+
+      &.selected {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+  // Adjustments for different screen sizes
+  @media (max-width: 359px) {
+    .calendar-header,
+    .week-days,
+    .calendar-grid {
+      padding: 5px;
+    }
+    .day {
+      padding: 3px;
+    }
+    .day-name {
+      padding: 3px;
+    }
+  }
+
+  @media (min-width: 360px) and (max-width: 575px) {
+    .calendar-header,
+    .week-days,
+    .calendar-grid {
+      padding: 10px;
+    }
+    .day {
+      padding: 5px;
+    }
+    .day-name {
+      padding: 5px;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .calendar-header,
+    .week-days,
+    .calendar-grid {
+      padding: 15px;
+    }
+    .day {
+      padding: 10px;
+    }
+    .day-name {
+      padding: 10px;
+    }
+  }
+}

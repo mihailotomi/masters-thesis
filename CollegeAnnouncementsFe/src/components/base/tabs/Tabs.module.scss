@@ -1,0 +1,32 @@
+@use "../../../styles/variables.scss" as *;
+.tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $border-color;
+}
+.tabs-content-wrapper {
+  padding: 1rem;
+  border: 1px solid $border-color;
+  border-top: none;
+  border-bottom: none;
+  background-color: $color-white !important;
+}
+.tab {
+  padding: 0.5rem 1rem;
+  background-color: $color-secondary;
+  border-radius: 3px 3px 0 0;
+  margin-right: 0.25rem;
+  color: $color-white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+
+  &--active {
+    color: $color-black !important;
+    background-color: $color-white !important;
+    border: 1px solid $border-color;
+    border-bottom: none;
+  }
+}

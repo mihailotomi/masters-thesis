@@ -1,0 +1,14 @@
+.switch {
+  &-loading {
+    padding-left: 0 !important;
+  }
+
+  &-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+}

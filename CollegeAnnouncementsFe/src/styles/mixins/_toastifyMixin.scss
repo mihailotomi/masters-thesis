@@ -1,0 +1,7 @@
+@mixin toast_style($toast_color, $text_color, $toast_box_shadow) {
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px !important;
+  background: $toast_color !important;
+  box-shadow: 0px 1px 5px $toast_box_shadow !important;
+}

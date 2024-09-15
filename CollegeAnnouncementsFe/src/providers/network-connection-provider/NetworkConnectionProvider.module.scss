@@ -1,0 +1,38 @@
+@use "../../styles/_variables.scss" as *;
+.modal {
+  position: "fixed";
+  top: 0;
+  z-index: 1050;
+  &__backdrop {
+    position: "fixed";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__success {
+    background-color: $color-success;
+  }
+  &__error {
+    background-color: $color-danger;
+  }
+  &__icon {
+    font-size: 2rem;
+    color: $color-white;
+  }
+  &__message {
+    color: $color-white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0;
+  }
+}

@@ -1,0 +1,15 @@
+.toast-warn-container {
+  @include toast_style($color-warning, $color-dark, $toast_box_shadow);
+}
+
+.toast-error-container {
+  @include toast_style($color-danger, $color-light, $toast_box_shadow);
+}
+
+.toast-success-container {
+  @include toast_style($color-success, $color-light, $toast_box_shadow);
+}
+
+.toast-info-container {
+  @include toast_style($color-info, $color-dark, $toast_box_shadow);
+}

@@ -1,0 +1,8 @@
+@use "../../../styles//variables" as *;
+
+.header {
+  background-color: $color-secondary;
+  color: $color-white;
+  box-shadow: $nav_shadow;
+  padding: 15px;
+}

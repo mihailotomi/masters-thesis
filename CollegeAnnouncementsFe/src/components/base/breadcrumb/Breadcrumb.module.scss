@@ -1,0 +1,35 @@
+@use "../../../styles/variables.scss" as *;
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 1rem;
+  color: $color-gray;
+  text-transform: uppercase;
+
+  &:not(:last-child) {
+    &:after {
+      content: "/";
+      margin: 0 10px;
+    }
+  }
+
+  a {
+    color: $color-gray;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.active {
+  font-weight: bold;
+  font-weight: 600;
+  a {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,128 @@
+@use "../../../styles/_variables.scss" as *;
+
+.loader {
+  // Default size and background settings
+  --background-size: 16px 16px;
+  --width: 45px;
+  --height: 45px;
+  --max-width: 65px;
+  --max-height: 65px;
+
+  background: var(--c), var(--c), var(--c), var(--c), var(--c), var(--c), var(--c), var(--c),
+    var(--c);
+  background-size: var(--background-size);
+  animation:
+    l32-1 1.5s infinite,
+    l32-2 1.5s infinite;
+
+  // Predefined size modifiers
+  &--x-small {
+    --height: 8px;
+    --width: 8px;
+    --max-width: 16px;
+    --max-height: 16px;
+    --background-size: 3px 3px;
+  }
+  &--small {
+    --height: 25px;
+    --width: 25px;
+    --max-width: 45px;
+    --max-height: 45px;
+    --background-size: 8px 8px;
+  }
+  &--medium {
+    --height: 45px;
+    --width: 45px;
+    --max-width: 65px;
+    --max-height: 65px;
+    --background-size: 16px 16px;
+  }
+  &--large {
+    --height: 65px;
+    --width: 65px;
+    --max-width: 85px;
+    --max-height: 85px;
+    --background-size: 24px 24px;
+  }
+  &--x-large {
+    --height: 85px;
+    --width: 85px;
+    --max-width: 140px;
+    --max-height: 140px;
+    --background-size: 36px 36px;
+  }
+
+  // Color modifiers
+  &--primary {
+    --c: no-repeat linear-gradient(#{$color-primary} 0 0);
+  }
+  &--secondary {
+    --c: no-repeat linear-gradient(#{$color-secondary} 0 0);
+  }
+  &--success {
+    --c: no-repeat linear-gradient(#{$color-success} 0 0);
+  }
+  &--danger {
+    --c: no-repeat linear-gradient(#{$color-danger} 0 0);
+  }
+  &--warning {
+    --c: no-repeat linear-gradient(#{$color-warning} 0 0);
+  }
+  &--info {
+    --c: no-repeat linear-gradient(#{$color-info} 0 0);
+  }
+  &--light {
+    --c: no-repeat linear-gradient(#{$color-light} 0 0);
+  }
+  &--dark {
+    --c: no-repeat linear-gradient(#{$color-dark} 0 0);
+  }
+  &--white {
+    --c: no-repeat linear-gradient(#{$color-white} 0 0);
+  }
+  &--black {
+    --c: no-repeat linear-gradient(#{$color-black} 0 0);
+  }
+}
+
+@keyframes l32-1 {
+  0%,
+  100% {
+    width: var(--width);
+    height: var(--height);
+  }
+  35%,
+  65% {
+    width: var(--max-width);
+    height: var(--max-height);
+  }
+}
+
+@keyframes l32-2 {
+  0%,
+  40% {
+    background-position:
+      0 0,
+      0 50%,
+      0 100%,
+      50% 100%,
+      100% 100%,
+      100% 50%,
+      100% 0,
+      50% 0,
+      50% 50%;
+  }
+  60%,
+  100% {
+    background-position:
+      0 50%,
+      0 100%,
+      50% 100%,
+      100% 100%,
+      100% 50%,
+      100% 0,
+      50% 0,
+      0 0,
+      50% 50%;
+  }
+}

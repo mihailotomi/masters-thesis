@@ -1,0 +1,11 @@
+@use "../../../styles/variables.scss" as *;
+
+.panel {
+  background-color: $panel-background;
+  border: $panel_border;
+  box-shadow: $box-shadow;
+  border: $panel_border;
+  padding: 20px;
+  margin-bottom: 25px;
+  position: relative;
+}

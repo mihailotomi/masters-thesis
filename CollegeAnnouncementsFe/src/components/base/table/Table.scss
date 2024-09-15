@@ -1,0 +1,20 @@
+@use "../../../styles/variables.scss" as *;
+
+.table-container {
+  overflow-x: auto;
+  box-shadow: $box-shadow;
+  border: 1px solid #ddd;
+}
+.custom-table {
+  table-layout: fixed;
+  width: 100%;
+
+  .no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: larger;
+  }
+  .sorted {
+    background-color: $color-light;
+  }
+}

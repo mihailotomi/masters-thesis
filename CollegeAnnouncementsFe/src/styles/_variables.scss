@@ -1,0 +1,47 @@
+// BASE COLORS
+$color-primary: #5488e6;
+$color-secondary: #22baa0;
+$color-success: #48a85b;
+$color-info: #5bc0de;
+$color-warning: #f5b816;
+$color-danger: #e65041;
+$color-light: #f4f4f4;
+$color-dark: #333;
+$color-gray: #9a9a9a;
+$color-white: #fff;
+$color-black: #000;
+// BASE BOX SHADOWS
+$box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.15);
+// BASE BORDER
+$border: 1px solid #ddd;
+
+$nav_height: 75px;
+$nav_font_color: #fff;
+$nav_color: #22baa0;
+$logo_background: #5488e6;
+$logo_font_color: #fff;
+$nav_shadow: $box-shadow;
+$border_color: #ddd;
+$low_res_limit: 768px;
+
+$sidenav_width: 160px;
+$sidenav_width_collapsed: 44px;
+$sidenav_bg_color: #22baa0;
+$sidenav_active_background: #48a85b;
+$sidenav_active_color: #f5f5f5;
+$sidenav_font_color: #fff;
+
+$toast_box_shadow: rgba(248, 175, 175, 0.1) !default;
+
+// PANEL
+$panel_background: $color-white;
+$panel_border: $border;
+
+// CARDS
+$card-background: $color-info;
+
+// HEADER
+$header_background: #e9edf2;
+
+$page-background: linear-gradient(135deg, #fff 0%, $color-light 75%),
+  linear-gradient(135deg, $color-light 75%, $color-info 100%);

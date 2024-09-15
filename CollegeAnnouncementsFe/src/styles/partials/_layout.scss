@@ -1,0 +1,111 @@
+.navbar-top {
+  @extend .navbar;
+  font-size: 14px;
+
+  padding: 0 15px 0 0 !important;
+
+  border-radius: 0;
+  height: $nav_height;
+  border-width: 0;
+  color: $nav_font_color;
+  border-bottom: 1px solid transparent;
+  background-color: $nav_color;
+  box-shadow: $nav_shadow;
+
+  &-logo {
+    width: $sidenav_width;
+    background: $logo_background;
+    color: $logo_font_color;
+    height: $nav_height;
+    padding: 0 15px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-menu {
+    @extend .nav;
+    @extend .navbar-nav;
+    @extend .dropdown;
+
+    height: 100%;
+
+    &-toggle {
+      @extend .dropdown-toggle;
+
+      text-align: right;
+      background-color: $nav_color !important;
+      color: $nav_font_color !important;
+    }
+
+    @media (max-width: $low_res_limit) {
+      display: inline-block;
+      float: right;
+      margin-top: math.div($nav_height, 10);
+    }
+  }
+
+  &-dropdown {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    user-select: none;
+
+    button {
+      background-color: inherit;
+    }
+
+    &_toggle {
+      @extend .dropdown-toggle;
+
+      text-align: right;
+      color: $nav_font_color;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &_menu {
+      box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+      background-color: $nav_color;
+      display: block;
+      position: absolute;
+      right: -15px;
+      left: auto;
+      top: 100%;
+      padding: 5px 0;
+      list-style-type: none;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      border-radius: 0 0 4px 4px;
+      min-width: 160px;
+      cursor: pointer;
+      z-index: 100;
+
+      li {
+        padding: 3px 20px;
+        text-align: left;
+        color: black;
+
+        &:hover {
+          background-color: $color-light;
+        }
+      }
+    }
+  }
+}
+
+.page-container {
+  padding: 0.625rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.button {
+  &-icon {
+    margin-right: 0.3725rem;
+  }
+}

@@ -1,0 +1,32 @@
+@use "../../../styles/variables.scss" as *;
+
+.list-body {
+  position: relative;
+}
+
+.list {
+  table-layout: auto;
+  width: 100%;
+  max-width: 100%;
+
+  th,
+  td {
+    border-bottom: none !important;
+    max-width: 15vw;
+    word-wrap: break-word;
+  }
+}
+
+.list-overlay {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

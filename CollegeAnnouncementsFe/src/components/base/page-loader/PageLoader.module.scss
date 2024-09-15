@@ -1,0 +1,59 @@
+@use "../../../styles/_variables.scss" as *;
+
+.loader {
+  height: 5px;
+  width: 0;
+}
+
+.loadingAnimation {
+  background-color: $color-secondary;
+  background-image: linear-gradient(
+    to right,
+    lighten($color-secondary, 20%),
+    $color-secondary,
+    darken($color-secondary, 20%)
+  );
+  transition: width 0.5s ease;
+  animation: fillLoader 5s infinite;
+}
+
+.loaderSimple {
+  height: 5px;
+  width: 100%;
+  background-color: $color-secondary;
+  background: linear-gradient(
+    to right,
+    lighten($color-secondary, 20%) 25%,
+    $color-secondary 50%,
+    darken($color-secondary, 20%) 75%
+  );
+  background-size: 200% 100%;
+  animation: shift 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fillLoader {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  75% {
+    width: 87.5%;
+  }
+  100% {
+    width: 98%;
+  }
+}
+
+@keyframes shift {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

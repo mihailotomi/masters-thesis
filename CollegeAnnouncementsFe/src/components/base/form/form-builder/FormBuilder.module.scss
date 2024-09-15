@@ -1,0 +1,76 @@
+@use "../../../../styles/variables.scss" as *;
+
+.form-builder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: $panel_border;
+  box-shadow: $box-shadow;
+  border: $panel_border;
+  padding: 20px;
+  background-color: $color-white;
+}
+
+.form-overlay {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-label {
+  text-align: end;
+  font-weight: bold;
+  @media (max-width: 576px) {
+    text-align: start;
+  }
+}
+
+.form-options {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.form-control {
+  &-invalid {
+    border-color: $color-danger !important;
+  }
+}
+
+.error-message {
+  display: flex;
+  color: $color-danger;
+
+  small {
+    margin-left: 0.125rem;
+  }
+}
+
+.clean-button {
+  border: none;
+  color: $color-primary;
+  background: transparent;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}

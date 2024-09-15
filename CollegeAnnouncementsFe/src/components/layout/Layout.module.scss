@@ -1,0 +1,16 @@
+@use "../../styles/_variables.scss" as *;
+
+.layout-container {
+  display: flex;
+  position: relative;
+  height: 100%;
+  padding-bottom: $nav_height;
+}
+
+.main {
+  flex: 1;
+  min-height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background-color: #FAFAFA;
+}
