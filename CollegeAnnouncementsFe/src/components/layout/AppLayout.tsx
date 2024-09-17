@@ -1,12 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { useEffect } from "react";
 
-import { useAppDispatch, useAppSelector } from "@store";
-import {
-  useLazyGetCurrentUserQuery,
-} from "@api";
-import { authActions } from "@reducers";
-import { appRoutes, navigateTo } from "@navigation";
 
 import { Navbar } from "./navbar/Navbar";
 import { SideNav } from "./sidenav/Sidenav";

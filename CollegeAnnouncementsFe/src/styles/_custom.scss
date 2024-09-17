@@ -19,6 +19,18 @@ a {
   text-decoration: none !important;
 }
 
+.navbar-top-dropdown_menu {  
+  .dropdown-item {
+    background-color: transparent;
+    color: $color-dark !important;
+    
+    &:hover, &:focus {
+      background-color: $color-success;
+      color: $color-white; 
+    }
+  }
+}
+
 .form-check-input {
   height: 1.25rem;
   width: 2rem;

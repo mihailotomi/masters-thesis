@@ -1,7 +1,6 @@
 export interface Environment {
   mode: AppModeType;
-  manualActionsStartDate: string;
-  tweakPollInterval: number;
+  api: string;
   oidc: {
     clientId: string;
     issuerEndpoint: string;

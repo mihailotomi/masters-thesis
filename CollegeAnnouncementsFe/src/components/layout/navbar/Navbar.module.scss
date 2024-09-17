@@ -2,5 +2,21 @@
 
 .logout-icon {
   font-size: 1rem;
-  color: $color-black;
+  color: $color-light;
+  border-top: 1px solid $color-light;
+  border-bottom: 1px solid $color-light;
+  width: 100%;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid $color-light;
+  background-color: $color-light;
+
+  &:active, &:hover{
+    border: 3px solid $color-light;
+  }
 }

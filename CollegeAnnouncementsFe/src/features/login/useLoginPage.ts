@@ -1,14 +1,14 @@
 import config from "@config";
 import { useAuthCodePkce, useJwt } from "@hooks";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useGetKeyListMutation, useGetUserTokenMutation } from "@store";
 import { authActions } from "@reducers";
 import { alertService } from "@providers";
+import { appRoutes } from "@navigation";
 
 export function useLoginPage() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { state } = useLocation();
 
   const { getAuthorizationUrl, getTokenUrl } = useAuthCodePkce({
     authorizationUrl: config.environment.oidc.authorizationEndpoint,
@@ -27,7 +27,7 @@ export function useLoginPage() {
   }: {
     token: string;
     user: any;
-  }) => {
+  }) => {    
     dispatch(
       authActions.setCurrentUser({
         token: token,
@@ -36,10 +36,11 @@ export function useLoginPage() {
         lastName: user.family_name,
         email: user.email,
         username: user.preferred_username,
+        picture: user.picture
       }),
     );
-    alertService.success(`Zdravo, ${user?.name}`);
-    navigate(state?.returnTo || "/", { replace: true });
+    alertService.success(`Здраво, ${user?.name}`);
+    navigate(appRoutes.announcements.path || "/", { replace: true });
   };
 
   const onLoginError = () => {

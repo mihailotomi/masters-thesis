@@ -16,13 +16,14 @@ const LoginPage = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className={`card text-center p-5 ${styles.card}`} style={{ width: "20rem" }}>
+      <div className={`card text-center p-5 ${styles.card}`} style={{ width: "30rem" }}>
         <div className="card-body">
           <div className="mb-4">
             <img src="/assets/logo.png" alt="Logo" className={`img-fluid ${styles.logo}`} />
+            <h2>OБАВЕШТЕЊА</h2>
           </div>
           <button className={`btn btn-primary w-100 ${styles.btnPrimary}`} onClick={onButtonClick}>
-            Prijavi se
+            Пријави се
           </button>
         </div>
       </div>

@@ -1,0 +1,19 @@
+// AnnouncementListPage.module.scss
+
+.announcementsList {
+  // Ensure the container has proper padding or margin
+  padding: 15px;
+
+  .container {
+    // Ensure the container takes full width
+    width: 100%;
+  }
+
+  .row {
+    margin: 0 -15px; // Adjust margins for proper spacing
+
+    .col-md-4 {
+      padding: 0 15px; // Adjust padding for proper spacing
+    }
+  }
+}

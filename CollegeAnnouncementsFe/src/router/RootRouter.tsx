@@ -8,6 +8,10 @@ import { AuthGuardProvider } from "@providers";
 import LoginPage from "src/features/login/LoginPage";
 import { CodeCallbackPage } from "src/features/login/CodeCallbackPage";
 
+const AnnounecementListPage = React.lazy(() =>
+  import("@feat/announcements").then((module) => ({ default: module.AnnounecementListPage })),
+);
+
 // ------------- REPORTS ROUTES END ------------- //
 
 export const RootRouter: React.FC = () => {
@@ -40,7 +44,14 @@ export const RootRouter: React.FC = () => {
                 </Suspense>
               </AuthGuardProvider>
             }
-          />
+          >
+            <Route
+              path={appRoutes.announcements.path}
+              element={
+                  <AnnounecementListPage />
+              }
+            />
+          </Route>
         </Routes>
       </Suspense>
     </HistoryRouter>

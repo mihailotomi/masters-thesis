@@ -20,6 +20,7 @@
       "@api": ["src/store/api"],
       "@reducers": ["src/store/reducers"],
       "@config": ["config"],
+      "@feat/announcements": ["src/features/announcements"]
     },
 
     /* Bundler mode */

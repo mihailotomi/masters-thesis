@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FiLogOut } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
 import { appRoutes } from "@navigation";
@@ -36,14 +35,18 @@ export function Navbar() {
 
       <ul className="navbar-top-menu">
         <li className="navbar-top-dropdown">
-          <button type="button" className="navbar-top-dropdown_toggle" onClick={toggleDropdown}>
-            {user?.email || "user"}
+          <button type="button" onClick={toggleDropdown}>
+            {user?.picture ? (
+              <img src={user?.picture} alt={user.username} className={style.avatar} />
+            ) : (
+              user?.username || "User"
+            )}
           </button>
           {isDropdownOpen && (
-            <ul className="navbar-top-dropdown_menu">
-              <li>
-                <button type="button" onClick={() => logOut()}>
-                  <FiLogOut className={style.logoutIcon} /> Odjava
+            <ul className={`navbar-top-dropdown_menu`} >
+              <li className="dropdown-item">
+                <button type="button" onClick={() => logOut()} className={style.logoutIcon}>
+                   Odjavi se
                 </button>
               </li>
             </ul>

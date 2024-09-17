@@ -5,7 +5,7 @@ export const useJwt = () => {
     const [encodedHeader, encodedPayload, signature] = token.split(".");
 
     const decodedHeader: JWTHeader = JSON.parse(atob(encodedHeader));
-    const decodedPayload: object = JSON.parse(atob(encodedPayload));
+    const decodedPayload: object = JSON.parse(atob(encodedPayload.replace(/-/g, '+').replace(/_/g, '/')));
 
     const publicKey = keys.find((key) => key.kid === decodedHeader.kid);
 

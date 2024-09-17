@@ -4,6 +4,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import { authReducer, drawerReducer, themeReducer, loaderReducer } from "../reducers";
 import {
+  announcementsApi,
   authApi,
 } from "../api";
 import { errorMiddleware } from "../middleware";
@@ -16,11 +17,13 @@ export const store = configureStore({
     theme: themeReducer,
     loader: loaderReducer,
     // redux api reducers
+    [announcementsApi.reducerPath]: announcementsApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }).concat(
       authApi.middleware,
+      announcementsApi.middleware,
       errorMiddleware,
     ),
 });

@@ -2,8 +2,7 @@ import { AppModeType, Environment } from "./environment.types";
 
 export const devEnv: Environment = {
   mode: AppModeType.dev,
-  manualActionsStartDate: "2018-07-31T12:00:00.000Z",
-  tweakPollInterval: 20000,
+  api: "https://localhost:7033/",
   oidc: {
     clientId: "285068258355249156@college",
     issuerEndpoint: "http://localhost:8081",
