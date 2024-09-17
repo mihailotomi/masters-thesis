@@ -8,6 +8,7 @@ import { useFormBuilder } from "./useFormBuilder";
 import { FormOverlay } from "./FormOverlay";
 
 import styles from "./FormBuilder.module.scss";
+import { FileUpload } from "../../file-upload";
 
 export function FormBuilder<TForm>({
   form,
@@ -106,7 +107,7 @@ export function FormBuilder<TForm>({
         onClick={() => onCleanHandler()}
       >
         <FaRetweet className="button-icon" />
-        Poništi
+        Поништи
       </button>
     ) : (
       <button
@@ -154,10 +155,11 @@ export function FormBuilder<TForm>({
   );
 
   return (
-    <form onSubmit={onSubmitHandler} className={classNames(styles.formBuilder, className)}>
+    <form onSubmit={onSubmitHandler} className={classNames(styles.formBuilder, className)} style={{width:"80rem"}}>
       {isLoading && <FormOverlay />}
       {title && <h4 className={styles.formTitle}>{title}</h4>}
       {renderControls()}
+      <FileUpload onUpload={()=>{}} />
       <div className="row justify-content-end">
         <div className={classNames(`col-sm-${12 - labelSize}`, styles.formOptionsWrapper)}>
           {renderFormOptions()}

@@ -1,4 +1,4 @@
-﻿namespace CollegeAnnouncements.Entities;
+﻿namespace CollegeAnnouncements.Domain.Entities;
 
 public class Document
 {

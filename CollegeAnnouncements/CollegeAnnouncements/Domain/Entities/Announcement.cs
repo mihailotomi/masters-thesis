@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace CollegeAnnouncements.Entities;
+namespace CollegeAnnouncements.Domain.Entities;
 
 
 #region Enums
@@ -16,33 +16,31 @@ public enum AnnouncementPriorityType
 
 public enum AnnouncementAudienceType
 {
-    [Description("Students")]
-    STUDENTS,
-    [Description("Employees")]
-    EMPLOYEES
+    [Description("EMPLOYEE")]
+    EMPLOYEE,
+    [Description("STUDENT")]
+    STUDENT
 }
 #endregion
 
 public class Announcement
 {
-    public int Id { get; private set; }
+    public int? Id { get; private set; }
     public string Title { get; private set; }
     public string Content { get; private set; }
     public DateTime ValidUntil { get; private set; }
     public AnnouncementPriorityType Priority { get; private set; }
-    public List<AnnouncementAudienceType> Audience { get; private set; }
+    public AnnouncementAudienceType[] Audience { get; private set; }
     public List<Document> Documents { get; private set; }
 
 
     protected Announcement(
-        int id,
         string title,
         string content,
         DateTime validUntil,
         AnnouncementPriorityType priority,
-        List<AnnouncementAudienceType> audience)
+        AnnouncementAudienceType[] audience)
     {
-        Id = id;
         Title = title;
         Content = content;
         ValidUntil = validUntil;
@@ -52,14 +50,13 @@ public class Announcement
     }
 
     public static Announcement Create(
-        int id,
         string title,
         string content,
         DateTime validUntil,
         AnnouncementPriorityType priority,
-        List<AnnouncementAudienceType> audience)
+        AnnouncementAudienceType[] audience)
     {
-        return new Announcement(id, title, content, validUntil, priority, audience);
+        return new Announcement(title, content, validUntil, priority, audience);
     }
 
     public Announcement AttachDocument(Document document)

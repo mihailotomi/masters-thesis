@@ -1,4 +1,8 @@
+using CollegeAnnouncements.Domain.Constants;
+using CollegeAnnouncements.Endpoints;
 using CollegeAnnouncements.Infrastructure;
+using CollegeAnnouncements.Interfaces;
+using CollegeAnnouncements.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 
@@ -38,10 +42,29 @@ var builder = WebApplication.CreateBuilder(args);
         });
     });
 
+    builder.Services.ConfigureHttpJsonOptions(options =>
+    {
+        options.SerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowLocalhost", policy =>
+        {
+            policy.AllowAnyOrigin() // Adjust if needed
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+    });
+
     builder.Services.AddInfrastructureServices(options =>
     {
         options.ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     });
+
+    builder.Services.AddHttpContextAccessor();
+
+    builder.Services.AddScoped<IUser, CurrentUser>();
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -49,10 +72,10 @@ var builder = WebApplication.CreateBuilder(args);
         builder.Configuration.Bind(nameof(JwtBearerOptions), options);
     });
 
-    builder.Services.AddAuthorization();
-
-
-
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy(Policies.IsAdmin, policy => policy.RequireRole(Roles.ADMIN));
+    });
 }
 
 {
@@ -69,13 +92,9 @@ var builder = WebApplication.CreateBuilder(args);
 
     app.UseHttpsRedirection();
 
-    app.MapGet("/hello", () =>
-    {
-        return "Hello World";
-    })
-    .WithName("Hello")
-    .RequireAuthorization()
-    .WithOpenApi();
+    app.MapAnnouncementEndpoints(builder.Configuration);
+    app.UseCors("AllowLocalhost");
+
 
     app.Run();
 }

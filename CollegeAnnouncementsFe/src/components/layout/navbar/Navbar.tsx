@@ -26,7 +26,7 @@ export function Navbar() {
   return (
     <nav className="navbar-top">
       <Link
-        to={appRoutes.home.path}
+        to={appRoutes.announcements.path}
         className="navbar-top-logo"
         style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
@@ -46,7 +46,7 @@ export function Navbar() {
             <ul className={`navbar-top-dropdown_menu`} >
               <li className="dropdown-item">
                 <button type="button" onClick={() => logOut()} className={style.logoutIcon}>
-                   Odjavi se
+                   Одјави се
                 </button>
               </li>
             </ul>

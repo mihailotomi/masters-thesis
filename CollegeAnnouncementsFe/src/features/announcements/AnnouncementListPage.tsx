@@ -75,7 +75,7 @@ const PageTemplate: React.FC = () => {
 };
 
 
-export const AnnounecementListPage = () => (
+export const AnnouncementListPage = () => (
     <ErrorBoundaryProvider>
         <PageTemplate />
     </ErrorBoundaryProvider>

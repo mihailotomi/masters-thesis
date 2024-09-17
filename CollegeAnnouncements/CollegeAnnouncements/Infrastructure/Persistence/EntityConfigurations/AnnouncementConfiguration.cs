@@ -1,4 +1,4 @@
-﻿using CollegeAnnouncements.Entities;
+﻿using CollegeAnnouncements.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -32,7 +32,7 @@ public class AnnouncementConfiguration : IEntityTypeConfiguration<Announcement>
         builder.Property(a => a.Audience)
             .HasConversion(
                 v => v.Select(e => e.ToString()).ToArray(),
-                v => v.Select(e => (AnnouncementAudienceType)Enum.Parse(typeof(AnnouncementAudienceType), e)).ToList()
+                v => v.Select(e => (AnnouncementAudienceType)Enum.Parse(typeof(AnnouncementAudienceType), e)).ToArray()
             )
             .HasColumnType("text[]")
             .IsRequired();

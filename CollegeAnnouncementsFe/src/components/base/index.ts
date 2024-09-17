@@ -11,3 +11,4 @@ export * from "./tabs";
 export * from "./form";
 export * from "./switch";
 export * from "./list";
+export * from "./file-upload";

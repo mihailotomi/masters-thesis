@@ -1,4 +1,4 @@
-﻿using CollegeAnnouncements.Entities;
+﻿using CollegeAnnouncements.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

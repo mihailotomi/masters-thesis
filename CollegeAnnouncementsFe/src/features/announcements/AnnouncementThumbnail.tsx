@@ -45,7 +45,7 @@ const formatDate = (dateString: string) => {
           <Card.Title>{announcement.title}</Card.Title>
           <Card.Text>{announcement.content}</Card.Text>
           <Card.Footer className="text-end">
-            <small>Važi do: {formattedDate}</small>
+            <small>Важи до: {formattedDate}</small>
           </Card.Footer>
         </Card.Body>
       </Card>
