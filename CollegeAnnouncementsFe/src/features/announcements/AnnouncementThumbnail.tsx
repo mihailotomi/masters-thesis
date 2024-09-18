@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 
 import { Announcement, AnnouncementPriorityType } from "@entities";
+import { FaFileAlt } from "react-icons/fa";
 
 interface AnnouncementThumbnailProps {
   announcement: Announcement;
@@ -35,13 +36,20 @@ const formatDate = (dateString: string) => {
   
   const AnnouncementThumbnail: React.FC<AnnouncementThumbnailProps> = ({ announcement }) => {
     const thumbnailColor = getThumbnailColor(announcement.priority);
-    console.log(thumbnailColor);
-    
     const formattedDate = formatDate(announcement.validUntil);
+    const hasDocuments = announcement.documents && announcement.documents.length > 0;
   
     return (
       <Card className={`text-white mb-3`} bg={thumbnailColor}>
-        <Card.Body>
+        <Card.Body className={`position-relative ${hasDocuments ? "pe-5" : ""}`}>
+          {/* Conditionally render the file icon */}
+          {hasDocuments && (
+            <FaFileAlt
+              size={24}
+              className="position-absolute top-0 end-0 m-2"
+              title="Has attached documents"
+            />
+          )}
           <Card.Title>{announcement.title}</Card.Title>
           <Card.Text>{announcement.content}</Card.Text>
           <Card.Footer className="text-end">

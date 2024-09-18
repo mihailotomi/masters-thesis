@@ -22,6 +22,7 @@ public static class AnnouncementEndpoints
                 var totalAnnouncements = await db.Announcements.CountAsync();
 
                 var announcements = await db.Announcements
+                    .Include(x => x.Documents)
                     .OrderBy(a => a.ValidUntil)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
@@ -65,7 +66,7 @@ public static class AnnouncementEndpoints
 
         app.MapGet("/announcements/{id}", async (int id, AppDbContext db) =>
         {
-            var announcement = await db.Announcements.FindAsync(id);
+            var announcement = await db.Announcements.Include(x => x.Documents).FirstOrDefaultAsync(x => x.Id == id);
             if (announcement == null) return Results.NotFound();
 
             return Results.Ok(announcement);

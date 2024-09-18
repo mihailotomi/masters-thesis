@@ -7,6 +7,7 @@ import { AppLayout, AppLoader } from "@components";
 import { AuthGuardProvider } from "@providers";
 import LoginPage from "src/features/login/LoginPage";
 import { CodeCallbackPage } from "src/features/login/CodeCallbackPage";
+import AnnouncementDetails from "src/features/announcements/AnnouncementDetailsPage";
 
 const AnnouncementListPage = React.lazy(() =>
   import("@feat/announcements").then((module) => ({ default: module.AnnouncementListPage })),
@@ -59,6 +60,12 @@ export const RootRouter: React.FC = () => {
               path={appRoutes.addAnnouncement.path}
               element={
                   <CreateAnnouncementPage />
+              }
+            />
+            <Route
+              path={appRoutes.announcementDetails.path}
+              element={
+                  <AnnouncementDetails />
               }
             />
           </Route>

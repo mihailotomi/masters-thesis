@@ -33,7 +33,11 @@ export const announcementsApi = createApi({
       }),
       providesTags: ["Announcements"],
     }),
+    getAnnouncementById: builder.query<Announcement, string>({
+      query: (id) => `announcements/${id}`,
+      providesTags: (result, error, id) => [{ type: "Announcements", id }],
+    }),
   }),
 });
 
-export const { useGetAnnouncementsQuery } = announcementsApi;
+export const { useGetAnnouncementsQuery, useGetAnnouncementByIdQuery } = announcementsApi;
