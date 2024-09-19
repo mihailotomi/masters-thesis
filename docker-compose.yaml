@@ -10,6 +10,17 @@ services:
       POSTGRES_USER: announcement
       POSTGRES_PASSWORD: announcement123
 
+  jobPost-db:
+    image: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - jobPosts-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: jobPosts
+      POSTGRES_USER: jobPosts
+      POSTGRES_PASSWORD: jobPosts123
+
   zitadel:
     restart: "always"
     image: "ghcr.io/zitadel/zitadel:latest"
@@ -43,3 +54,4 @@ services:
 volumes:
   announcement-data:
   cockroachdb-data:
+  jobPosts-data:

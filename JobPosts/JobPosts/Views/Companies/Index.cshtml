@@ -1,0 +1,61 @@
+﻿@model CompanyListViewModel
+
+@{
+    ViewData["Title"] = "Companies";
+}
+
+<div class="container mt-4">
+    <h2>Компаније</h2>
+    <div class="row">
+        @foreach (var company in Model.Companies)
+        {
+            <div class="col-12 mb-3">
+                <div class="card shadow-sm p-3 d-flex flex-row align-items-center">
+                    <img src="@company.LogoUrl" alt="Logo" class="img-fluid" style="width: 100px; height: auto;">
+                    <div class="ms-3">
+                        <h4>@company.Name</h4>
+                        <p><strong>ПИБ:</strong> @company.IdentificationNumber</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Pagination Controls -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mt-4">
+            @if (Model.HasPreviousPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)">Претходна</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">Претходна</span>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+
+            @if (Model.HasNextPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)">Следећа</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <span class="page-link">Следећа</span>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

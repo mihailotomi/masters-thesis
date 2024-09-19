@@ -34,7 +34,7 @@ export function AppLayout() {
     <>
       <Navbar />
       <div className={styles.layoutContainer}>
-        {/* <SideNav /> */}
+        <SideNav />
         <main className={styles.main}>
           <Outlet />
         </main>
