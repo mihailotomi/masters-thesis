@@ -1,0 +1,49 @@
+﻿@model JobPosts.Models.JobPostCreateViewModel
+
+<div class="container mt-4">
+    <h2>Нови Конкурс</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="mb-3">
+            <label for="CompanyId" class="form-label">Компанија</label>
+            <select class="form-select" id="CompanyId" name="CompanyId" required>
+                <option value="">-- Одабери компанију --</option>
+                @foreach (var company in Model.Companies)
+                {
+                    <option value="@company.Id">@company.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="PositionName" class="form-label">Назив позиције</label>
+            <input type="text" class="form-control" id="PositionName" name="PositionName" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Опис</label>
+            <textarea class="form-control" id="Description" name="Description" rows="4" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="Type" class="form-label">Тип позиције</label>
+            <select class="form-select" id="Type" name="Type" required>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Location" class="form-label">Локација</label>
+            <input type="text" class="form-control" id="Location" name="Location" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="ValidUntil" class="form-label">Важи доl</label>
+            <input type="date" class="form-control" id="ValidUntil" name="ValidUntil" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Креирај</button>
+    </form>
+</div>
